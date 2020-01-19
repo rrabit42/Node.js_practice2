@@ -18,3 +18,5 @@ console.log(msg)
 
 const chalk = require('chalk')
 console.log(chalk.green('Success!'));
+//style option 순서 바뀌어도 상관 없음!
+console.log(chalk.bold.green('wow'))
