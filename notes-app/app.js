@@ -1,19 +1,29 @@
 const chalk = require('chalk')
+const yargs = require('yargs')
 const getNotes = require('./notes.js')
 
-const command = process.argv[2]
+// Customize yargs version
+yargs.version('1.1.0')
 
-console.log(process.argv)
+// Create add command
+yargs.command({
+  command: 'add',
+  describe: 'Add a new note',
+  handler: function(){
+    console.log('Adding a new note!!')
+  }
+})
+//그러면 --help 옵션 입력했을 때 command에 내가 입력한 command가 뜸!
 
-if(command === 'add'){
-  console.log('Adding note!')
-}
-else if(command === 'remove'){
-  console.log('Removing note!')
-}
+// Create remove command
+yargs.command({
+  command: 'remove',
+  describe: 'Remove a note',
+  handler: function(){
+    console.log('Removing the note')
+  }
+})
 
-//argument vector : array that contains all of the arguments provided
-//항상 2개는 디폴트로 리턴됨
-// 하나는 path to the node.js executable on your machine
-// 두번째는 path to our app.js file
-// 그 이후는 우리가 제공한 arguments
+// add, remove, read, list
+
+console.log(yargs.argv)
