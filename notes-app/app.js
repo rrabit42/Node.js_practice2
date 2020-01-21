@@ -1,22 +1,19 @@
-//npm module을 먼저 설치해줘야함
-//npm install
-
+const chalk = require('chalk')
 const getNotes = require('./notes.js')
 
-const msg = getNotes()
-console.log(msg)
+const command = process.argv[2]
 
-//
-// Challenge: Use the chalk library in your project
-//
-// 1. Install version 2.4.1 of chalk
-// 2. Load chalk into app.js
-// 3. Use it to print the string "Success!" to the console in green
-// 4. Test your work
-//
-// Bonus: Use docs to mess around with other styles. Makek text bold and inversed.
+console.log(process.argv)
 
-const chalk = require('chalk')
-console.log(chalk.green('Success!'));
-//style option 순서 바뀌어도 상관 없음!
-console.log(chalk.bold.red('wow'))
+if(command === 'add'){
+  console.log('Adding note!')
+}
+else if(command === 'remove'){
+  console.log('Removing note!')
+}
+
+//argument vector : array that contains all of the arguments provided
+//항상 2개는 디폴트로 리턴됨
+// 하나는 path to the node.js executable on your machine
+// 두번째는 path to our app.js file
+// 그 이후는 우리가 제공한 arguments
