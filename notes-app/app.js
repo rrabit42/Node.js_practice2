@@ -9,11 +9,17 @@ yargs.version('1.1.0')
 yargs.command({
   command: 'add',
   describe: 'Add a new note',
-  handler: function(){
-    console.log('Adding a new note!!')
+  builder: {
+    title: {
+      describe: 'Note title',
+      demandOption: true, // you have to provided it in order for the command, 값이 안주어지면 boolean으로 들어감!
+      type: 'string'
+    }
+  },
+  handler: function(argv){
+    console.log('Title: '+argv.title)
   }
 })
-//그러면 --help 옵션 입력했을 때 command에 내가 입력한 command가 뜸!
 
 // Create remove command
 yargs.command({
@@ -23,13 +29,6 @@ yargs.command({
     console.log('Removing the note')
   }
 })
-
-//
-// Challenge: Add two new commands
-//
-// 1. Set up command to support "list" command (print placeholder message for now)
-// 2. Set up command to support "read" command (print placeholder message for now)
-// 3. Test your work by running both commands and ensure correct output
 
 // Create list command
 yargs.command({
@@ -49,4 +48,9 @@ yargs.command({
   }
 })
 
-console.log(yargs.argv)
+// printing the argvs makes all of this work! Yargs knows to actually do its thing and pass those arguments
+// console.log(yargs.argv)
+
+yargs.parse()
+// 얘는 argv넘겨줄 필요가 없음
+
