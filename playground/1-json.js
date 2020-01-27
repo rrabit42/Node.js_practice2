@@ -17,3 +17,22 @@ const dataJSON = dataBuffer.toString()
 const data = JSON.parse(dataJSON)
 console.log(data.title)
 
+
+//
+// Challenge: Work with JSON and the file system
+//
+// 1. Load and parse the JSON data
+// 2. Change the name and age property using your info
+// 3. Stringify the changed and overwrite the original data
+// 4. Test your work by viewing data in the JSON file
+
+const testJSON = fs.readFileSync('1-json.json').toString()
+
+const test = JSON.parse(testJSON)
+
+test.name = 'SeoYoung'
+test.age = 20
+
+const againJSON = JSON.stringify(test)
+
+fs.writeFileSync('1-json.json',againJSON)
