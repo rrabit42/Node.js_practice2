@@ -21,10 +21,10 @@ const addNote = function(title, body) {
     })
     //바뀐 data를 notes에 save
     saveNotes(notes)
-    console.log('New note added!')
+    console.log(chalk.green.inverse('New note added!'))
   }
   else{
-    console.log('Note title taken!')
+    console.log(chalk.red.inverse('Note title taken!'))
   }
 }
 
